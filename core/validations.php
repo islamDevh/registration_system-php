@@ -1,23 +1,26 @@
 <?php
 
-declare(strict_types=1); 
-// ckeck Request
-function checkReqouest($method){
-    if ($_SERVER['REQUEST_METHOD'] === $method ){
+declare(strict_types=1);
+
+// check Request
+function checkRequest($method)
+{
+    if ($_SERVER['REQUEST_METHOD'] === $method) {
         return true;
-    } 
+    }
     return false;
 }
 
 //checkPost input
-function checkPostInput($input){
-    if(isset($_POST[$input])){
-    return true;
+function checkPostInput($input)
+{
+    if (isset($_POST[$input])) {
+        return true;
     }
     return false;
 }
 //sanitize input
-function val_sanitize($value) 
+function val_sanitize($value)
 {
     $value = trim(htmlspecialchars(htmlentities($value)));
     return $value;
@@ -124,7 +127,7 @@ function val_string_int(string $string): bool
      * +	equivalent to {1,}
      */
     if (preg_match("/[a-z A-Z ,0-9]+$/", $string)) {
-        return true; 
+        return true;
     }
     return false;
 }
@@ -138,10 +141,11 @@ function val_string(string $string): bool
      */
     //
     if (preg_match("/[a-z A-Z أ-ي]+$/", $string)) {
-        return true; 
+        return true;
     }
     return false;
 }
-function redirect($path){
+function redirect($path)
+{
     header("location:$path");
 }
